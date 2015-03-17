@@ -7,10 +7,11 @@
   </form>
 </div>
 <body class="container">
-<ul>
+<div>
   <% @resorts.each do |resort| %>
-      <li><%= image_tag resort.photo.thumb %>  <%= link_to resort.name, resort %></li>
-    <p> <%= resort.expected_snowfall %> in. Expected this week!</p>
+    <div><%= image_tag resort.photo.thumb %>  <%= link_to resort.name, resort %>
+     <h3> <%= resort.expected_snowfall %> in.</h3> Expected this week!</div>
+     <hr>
   <% end %>
-</ul>
+</div>
 </body>
