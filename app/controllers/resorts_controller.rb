@@ -6,7 +6,6 @@ class ResortsController < ApplicationController
     else
       @resorts = Resort.all.sort_by(&:expected_snowfall).reverse
     end
-    @resorts = Resort.all.page(params[:page])
   end
 
   def show
