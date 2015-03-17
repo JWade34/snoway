@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  resort_id: 1
+  datetime: 2015-03-13 12:57:08
+  temperature: 9.99
+  precip_probability: 9.99
+  precip_accumulation: 9.99
+  precip_intensity_max: 9.99
+
+two:
+  resort_id: 1
+  datetime: 2015-03-13 12:57:08
+  temperature: 9.99
+  precip_probability: 9.99
+  precip_accumulation: 9.99
+  precip_intensity_max: 9.99

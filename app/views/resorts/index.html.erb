@@ -1,0 +1,10 @@
+<ul>
+  <% @resorts.each do |resort| %>
+    <li><%= link_to resort.name, resort %></li>
+  <% end %>
+</ul>
+
+<% total = @resort.hourly_forecasts.map do |forecast| %>
+  <% forecast.precip_accumulation.to_f %>
+<% end %>
+<p>Expected snowfall this week: <%= total.sum.round(2) %> inches</p>

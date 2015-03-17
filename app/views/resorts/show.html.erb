@@ -1,0 +1,38 @@
+<h1><%= @resort.name %></h1>
+ <p>more things about this resort here</p>
+
+
+
+ <table>
+  <thead>
+    <tr>
+      <th>When</th>
+      <th>Temp Low</th>
+      <th>Temp High</th>
+      <th>Precip Accumulation</th>
+      <th>Precip Type</th>
+      <th>Summary</th>
+    </tr>
+  </thead>
+  <tbody>
+
+   <% @resort.hourly_forecasts.sort_by(&:datetime).each do |forecast| %>
+     <tr>
+       <td ><%= forecast.datetime.strftime("%A, %b %d") %></td>
+       <td ><%= forecast.temperature_min.round(0) %></td>
+       <td ><%= forecast.temperature_max.round(0) %></td>
+       <td ><%= number_to_percentage forecast.precip_probability * 100, precision: 0 %></td>
+       <td ><%= forecast.precip_accumulation.round(1) %></td>
+       <td ><%= forecast.precip_type %></td>
+       <td ><%= forecast.summary %></td>
+     </tr>
+   <% end %>
+
+  </tbody>
+  </table>
+
+
+<% total = @resort.hourly_forecasts.map do |forecast| %>
+  <% forecast.precip_accumulation.to_f %>
+<% end %>
+<p>Expected snowfall this week: <%= total.sum.round(2) %> inches</p>
