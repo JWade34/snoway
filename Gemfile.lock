@@ -306,6 +306,7 @@ DEPENDENCIES
   http
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   mini_magick
   pg
   pg_search

@@ -1,6 +1,8 @@
 class Resort < ActiveRecord::Base
   mount_uploader :photo, PhotoUploader
 
+  paginates_per 4
+
   has_many :hourly_forecasts
 
   validates :name, :lat, :lng, presence: true
