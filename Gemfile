@@ -52,3 +52,4 @@ gem 'carrierwave'
 gem "mini_magick"
 gem 'bootstrap-sass'
 gem 'fog'
+gem 'pg_search'

@@ -29,4 +29,12 @@ class Resort < ActiveRecord::Base
     #   .round(2)
   end
 
+  include PgSearch
+  pg_search_scope :search,
+                  :against => [:name],
+                  :using => {
+                    :tsearch => {
+                      :dictionary => "english"}
+                  }
+
 end

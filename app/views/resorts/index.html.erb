@@ -1,3 +1,11 @@
+<div id="navbar" class="navbar-collapse collapse">
+  <form class="navbar-form navbar-left" role="search">
+    <%= form_tag root_path, method: :get do %>
+    <%= text_field_tag :search_text %>
+    <%= submit_tag "Search", class: "btn btn-default" %>
+    <% end %>
+  </form>
+</div>
 <body class="container">
 <ul>
   <% @resorts.each do |resort| %>
