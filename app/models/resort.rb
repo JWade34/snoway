@@ -1,4 +1,5 @@
 class Resort < ActiveRecord::Base
+  mount_uploader :photo, PhotoUploader
 
   has_many :hourly_forecasts
 
@@ -11,6 +12,21 @@ class Resort < ActiveRecord::Base
     self.lat = location["lat"]
     self.lng = location["lng"]
 
+  end
+
+  def expected_snowfall
+    accumulations = hourly_forecasts.future.map do |forecast|
+      forecast.precip_accumulation.to_f
+    end
+    accumulations.sum.round(2)
+
+
+    # hourly_forecasts
+    #   .future
+    #   .map(&:precip_accumulation)
+    #   .map(&:to_f)
+    #   .sum
+    #   .round(2)
   end
 
 end

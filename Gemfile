@@ -47,3 +47,7 @@ gem 'geocoder'
 gem 'pry'
 gem 'dotenv-rails'
 gem 'rails_12factor'
+gem 'rails_admin'
+gem 'carrierwave'
+gem "mini_magick"
+gem 'bootstrap-sass'

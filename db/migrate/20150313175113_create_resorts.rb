@@ -4,6 +4,7 @@ class CreateResorts < ActiveRecord::Migration
       t.string :name
       t.string :lat
       t.string :lng
+      t.string :photo
 
       t.timestamps null: false
     end
