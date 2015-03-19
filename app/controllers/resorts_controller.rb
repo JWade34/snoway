@@ -10,6 +10,7 @@ class ResortsController < ApplicationController
 
   def show
     @resort = Resort.find params[:id]
+    @flight = Flight.all
   end
 
 

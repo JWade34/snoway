@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 9.99
+  carrier_code: MyString
+  flight_number: MyString
+  carrier_name: MyString
+
+two:
+  price: 9.99
+  carrier_code: MyString
+  flight_number: MyString
+  carrier_name: MyString

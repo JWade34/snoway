@@ -11,8 +11,8 @@
       <th>When</th>
       <th>Temp Low</th>
       <th>Temp High</th>
-      <th>Precip Accumulation</th>
-      <th>Precip Type</th>
+      <th>Snow Probability</th>
+      <th>Inches of Snow</th>
       <th>Summary</th>
     </tr>
   </thead>
@@ -25,7 +25,6 @@
        <td ><%= forecast.temperature_max.round(0) %></td>
        <td ><%= number_to_percentage forecast.precip_probability * 100, precision: 0 %></td>
        <td ><%= forecast.precip_accumulation.round(1) %></td>
-       <td ><%= forecast.precip_type %></td>
        <td ><%= forecast.summary %></td>
      </tr>
    <% end %>
@@ -40,5 +39,32 @@
 <h4>Expected snowfall this week: <%= total.sum.round(2) %> inches</h4>
 
 
-<p><%= link_to "Buy a flight to #{@resort.name}", "http://www.kayak.com/flights" %></p>
+<p><%= link_to "Buy a flight to #{@resort.name}", "http://www.google.com/flights" %></p>
+
+
+<table>
+ <thead>
+   <tr>
+     <th>Destination</th>
+     <th>Airline</th>
+     <th>One-way Price</th>
+     <th>Carrier</th>
+     <th>Flight #</th>
+   </tr>
+ </thead>
+ <tbody>
+
+<% @flight.each do |fly| %>
+  <tr>
+    <td ><%= fly.destination %></td>
+    <td ><%= fly.carrier_name %></td>
+    <td ><%= number_to_currency(fly.price) %></td>
+    <td ><%= fly.carrier_code %></td>
+    <td ><%= fly.flight_number %></td>
+  </tr>
+<% end %>
+
+</tbody>
+</table>
+
 </body>
