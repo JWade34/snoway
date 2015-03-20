@@ -71,6 +71,8 @@ GEM
     erubis (2.7.0)
     excon (0.44.2)
     execjs (2.4.0)
+    figaro (1.1.0)
+      thor (~> 0.14)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
     fog (1.27.0)
@@ -301,6 +303,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.1.0)
   dotenv-rails
+  figaro
   fog
   geocoder
   http

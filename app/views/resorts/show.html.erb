@@ -50,17 +50,19 @@
      <th>One-way Price</th>
      <th>Carrier</th>
      <th>Flight #</th>
+     <th>Link</th>
    </tr>
  </thead>
  <tbody>
 
-<% @flight.each do |fly| %>
+<% flights_for_resort(flights: @flight, resort: @resort).each do |fly| %>
   <tr>
     <td ><%= fly.destination %></td>
     <td ><%= fly.carrier_name %></td>
     <td ><%= number_to_currency(fly.price) %></td>
     <td ><%= fly.carrier_code %></td>
     <td ><%= fly.flight_number %></td>
+    <td ><%= link_to "Fly to #{@resort.name} now", "http://www.google.com/flights" %></td>
   </tr>
 <% end %>
 

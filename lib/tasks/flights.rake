@@ -10,6 +10,9 @@ namespace :travel do
 
     origin = "IAH"
     destinations = %w( DEN SLC SFO SEA BTV )
+    # destinations = Resort.all.map(&:airport_codes).flatten.uniq
+    # destinations = %w(  BTV  )
+
     date = "2015-03-20"
 
 
@@ -18,13 +21,25 @@ namespace :travel do
       text = HTTP.with_headers(:accept => 'application/json').post("https://www.googleapis.com/qpxExpress/v1/trips/search?key=#{api_key}", json: request).to_s
       data = JSON.parse(text)
 
-        flight = Flight.new
-        flight.price = data["trips"]["tripOption"].first["saleTotal"]
-        flight.carrier_code = data["trips"]["tripOption"].first["slice"].first["segment"].first["flight"]["carrier"]
-        flight.flight_number = data["trips"]["tripOption"].first["slice"].first["segment"].first["flight"]["number"]
-        flight.carrier_name = data["trips"]["data"]["carrier"].find {|h| h["code"] == flight.carrier_code}["name"]
-        flight.destination = data["trips"]["data"]["city"].first["name"]
-        flight.save
+      carrier_code = data["trips"]["tripOption"].first["slice"].first["segment"].first["flight"]["carrier"]
+
+      flight_number = data["trips"]["tripOption"].first["slice"].first["segment"].map{|k| k["flight"]}.map(&:values).flatten.join("-")
+      # flight_number = data["trips"]["tripOption"].first["slice"].first["segment"].first["flight"]["number"]
+      carrier_name  = data["trips"]["data"]["carrier"].find {|h| h["code"] == carrier_code}["name"]
+
+
+      # puts "Found carrier_name#{carrier_name} flight_number #{flight_number} for destination #{destination}"
+
+
+      flight = Flight.where(carrier_name: carrier_name).where(flight_number: flight_number).first_or_create
+      flight.price = data["trips"]["tripOption"].first["saleTotal"].gsub("USD", "").to_f.round(2)
+      flight.carrier_code  = carrier_code
+      flight.flight_number = flight_number
+      flight.carrier_name  = carrier_name
+      destination_code     = data["trips"]["tripOption"].first["slice"].first["segment"].last["leg"].last["destination"]
+      flight.destination   = data["trips"]["data"]["city"].find {|h| h["code"] == destination_code}["name"]
+
+      flight.save!
 
     end
   end

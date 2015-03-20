@@ -54,3 +54,4 @@ gem 'bootstrap-sass'
 gem 'fog'
 gem 'pg_search'
 gem 'kaminari'
+gem "figaro"

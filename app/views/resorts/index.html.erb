@@ -7,6 +7,18 @@
   </form>
 </div>
 <body class="container">
+
+  <!-- Small modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Weekly Email</button>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <%= render partial:  'users/form' %>
+    </div>
+  </div>
+</div>
+
 <div>
   <% @resorts.each do |resort| %>
     <div><%= image_tag resort.photo.thumb %>  <%= link_to resort.name, resort %>

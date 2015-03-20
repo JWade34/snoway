@@ -15,6 +15,14 @@ class Resort < ActiveRecord::Base
 
   end
 
+  def cities
+    if name == "Stowe VT"
+      "Burlington"
+    else
+      ["Denver", "Salt Lake City", "San Francisco", "Seattle"]
+    end
+  end
+
   def expected_snowfall
     accumulations = hourly_forecasts.future.map do |forecast|
       forecast.precip_accumulation.to_f
