@@ -18,6 +18,12 @@ class Resort < ActiveRecord::Base
   def cities
     if name.include?("VT")
       "Burlington"
+    elsif name.include?("Canada")
+      "Montreal"
+    elsif name.include?("WY")
+      "Jackson Hole"
+    elsif name.include?("MT")
+      "Bozeman"
     elsif name.include?("AK")
       "Anchorage"
     elsif name.include?("BC")
@@ -25,6 +31,8 @@ class Resort < ActiveRecord::Base
     elsif name.include?("NY")
       "Buffalo"
     elsif name.include?("ID")
+      "Portland"
+    elsif name.include?("OR")
       "Portland"
     elsif name.include?("NM") || "Durango Mountain Resort CO" || "Wolf Creek, CO"
       "Santa Fe"
