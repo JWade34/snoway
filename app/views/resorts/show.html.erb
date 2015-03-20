@@ -5,7 +5,7 @@
 
 
 
- <table>
+ <table class="temp table-bordered table-condensed table-striped" style="width: 100%">
   <thead>
     <tr>
       <th>When</th>
@@ -36,13 +36,10 @@
 <% total = @resort.hourly_forecasts.map do |forecast| %>
   <% forecast.precip_accumulation.to_f %>
 <% end %>
-<h4>Expected snowfall this week: <%= total.sum.round(2) %> inches</h4>
+<h2>Expected snowfall this week: <%= total.sum.round(2) %> inches</h2>
 
 
-<p><%= link_to "Buy a flight to #{@resort.name}", "http://www.google.com/flights" %></p>
-
-
-<table>
+<table  class="flight table-bordered table-condensed table-striped" style="width: 100%">
  <thead>
    <tr>
      <th>Destination</th>
@@ -54,7 +51,6 @@
    </tr>
  </thead>
  <tbody>
-
 <% flights_for_resort(flights: @flight, resort: @resort).each do |fly| %>
   <tr>
     <td ><%= fly.destination %></td>
@@ -68,5 +64,11 @@
 
 </tbody>
 </table>
-
+<br>
+<div>
+  <%= link_to "Get to #{@resort.name} - Flight leaves tomorrow! ", href= "http://www.google.com/flights", class: "btn btn-success", style: "width: 100%" %>
+</div>
+<br>
+<br>
+<br>
 </body>

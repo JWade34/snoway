@@ -18,8 +18,14 @@ class Resort < ActiveRecord::Base
   def cities
     if name == "Stowe VT"
       "Burlington"
+    elsif name == "Telluride CO" || "Keystone, CO" || "Breckenridge, CO"
+      "Denver"
+    elsif name == "Tahoe, CA"
+      "San Francisco"
+    elsif name == "Whistler, BC"
+      "Seattle"
     else
-      ["Denver", "Salt Lake City", "San Francisco", "Seattle"]
+      "Salt Lake City"
     end
   end
 
