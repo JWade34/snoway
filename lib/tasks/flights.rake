@@ -13,7 +13,7 @@ namespace :travel do
     # destinations = Resort.all.map(&:airport_codes).flatten.uniq
     # destinations = %w(  BTV  )
 
-    date = "2015-03-20"
+    date = DateTime.tomorrow
 
 
     destinations.each do |destination|
@@ -31,7 +31,9 @@ namespace :travel do
       # puts "Found carrier_name#{carrier_name} flight_number #{flight_number} for destination #{destination}"
 
 
-      flight = Flight.where(carrier_name: carrier_name).where(flight_number: flight_number).first_or_create
+      flight = Flight.where(carrier_name: carrier_name)
+                      .where(flight_number: flight_number)
+                      .first_or_create
       flight.price = data["trips"]["tripOption"].first["saleTotal"].gsub("USD", "").to_f.round(2)
       flight.carrier_code  = carrier_code
       flight.flight_number = flight_number

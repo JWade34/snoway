@@ -16,13 +16,13 @@ class Resort < ActiveRecord::Base
   end
 
   def cities
-    if name == "Stowe VT"
+    if name.include?("VT")
       "Burlington"
-    elsif name == "Telluride CO" || "Keystone, CO" || "Breckenridge, CO"
+    elsif name.include?("CO")
       "Denver"
-    elsif name == "Tahoe, CA"
+    elsif name.include?("CA")
       "San Francisco"
-    elsif name == "Whistler, BC"
+    elsif name.include?("WA") || "Whistler, BC"
       "Seattle"
     else
       "Salt Lake City"
