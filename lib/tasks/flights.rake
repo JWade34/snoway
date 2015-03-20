@@ -9,7 +9,7 @@ namespace :travel do
     api_key = ENV["GOOGLE_API_KEY"]
 
     origin = "IAH"
-    destinations = %w( DEN SLC SFO SEA BTV )
+    destinations = %w( DEN SLC SFO SEA BTV SAF PDX BUF YVR ANC )
     # destinations = Resort.all.map(&:airport_codes).flatten.uniq
     # destinations = %w(  BTV  )
 
