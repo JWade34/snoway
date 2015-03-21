@@ -6,7 +6,7 @@
     <% end %>
   </form>
 </div>
-<body class="container">
+<body class="back container">
 
   <!-- Small modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Weekly Email</button>
@@ -21,12 +21,14 @@
 
 <br>
 <br>
-<div>
+
   <% @resorts.each do |resort| %>
-    <div><%= image_tag resort.photo.thumb %>  <%= link_to resort.name, resort %>
-     <h3> <%= resort.expected_snowfall %> in.</h3> Expected this week!</div>
-     <hr>
+    <div class="nopadding col-md-3 col-sm-6">
+      <img><%= image_tag resort.photo.large, class: "img-responsive" %></img>  <%= link_to resort.name, resort %>
+     <h3> <%= resort.expected_snowfall %> in.</h3> Expected this week!
+    </div>
   <% end %>
-</div>
+
+
 
 </body>

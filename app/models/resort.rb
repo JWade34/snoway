@@ -44,8 +44,10 @@ class Resort < ActiveRecord::Base
       "San Francisco"
     elsif name.include?("WA") || "Whistler, BC"
       "Seattle"
-    else
+    elsif name.include?("UT")
       "Salt Lake City"
+    else
+      "Grab a flight today"
     end
   end
 
