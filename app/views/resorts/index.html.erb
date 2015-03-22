@@ -1,3 +1,6 @@
+
+
+
 <div id="navbar" class="navbar-collapse collapse">
   <form class="navbar-form navbar-left" role="search">
     <%= form_tag root_path, method: :get do %>
@@ -8,8 +11,8 @@
 </div>
 <body class="back container">
 
-  <!-- Small modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Weekly Email</button>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Sign up for Weekly Email</button>
 
 <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
@@ -19,15 +22,31 @@
   </div>
 </div>
 
+
+
 <br>
 <br>
 
-  <% @resorts.each do |resort| %>
-    <div class="nopadding col-md-3 col-sm-6">
-      <img><%= image_tag resort.photo.large, class: "img-responsive" %></img>  <%= link_to resort.name, resort %>
+  <!-- <% @resorts.each do |resort| %>
+    <div class="firstloop col-md-3 col-sm-6">
+      <img><%= link_to image_tag(resort.photo.large, class: "img-responsive"), resort %></img>  <%= link_to resort.name, resort %>
      <h3> <%= resort.expected_snowfall %> in.</h3> Expected this week!
     </div>
-  <% end %>
+  <% end %> -->
+
+  <div class="row">
+    <% @resorts.each do |resort| %>
+   <div class="col-md-3">
+     <div class="thumbnail">
+       <%= link_to image_tag(resort.photo.thumb), resort %>
+       <div class="caption">
+         <h4><%= link_to resort.name, resort %></h4>
+         <h3><%= resort.expected_snowfall %> in.</h3>
+       </div>
+     </div>
+   </div>
+   <% end %>
+  </div>
 
 
 
