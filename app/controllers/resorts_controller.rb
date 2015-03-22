@@ -13,5 +13,9 @@ class ResortsController < ApplicationController
     @flight = Flight.all
   end
 
+  def flight
+    @flight = Flight.all
+  end
+
 
 end

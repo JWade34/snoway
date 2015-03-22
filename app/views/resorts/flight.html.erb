@@ -1,0 +1,79 @@
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">SnowFly</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"> <%= link_to "Home", root_path %> <span class="sr-only">(current)</span></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <button type="button" class="navbar-btn btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Get Weekly Snowfall Email</button>
+        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              <%= render partial:  'users/form' %>
+            </div>
+          </div>
+        </div>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<body class="flightback">
+<h1 class="flighttitle"> CHEAPEST FLIGHTS LEAVING TOMORROW </h1>
+<br>
+
+<div class="container">
+
+<table  class="flight table-bordered table-condensed table-striped" style="width: 100%">
+ <thead>
+   <tr>
+     <th>Destination</th>
+     <th>Airline</th>
+     <th>Price</th>
+     <th>Carrier</th>
+     <th>Flight #</th>
+     <th>Link</th>
+   </tr>
+ </thead>
+ <tbody>
+<% @flight.each do |fly| %>
+  <tr>
+    <td ><%= fly.destination %></td>
+    <td ><%= fly.carrier_name %></td>
+    <td ><%= number_to_currency(fly.price) %></td>
+    <td ><%= fly.carrier_code %></td>
+    <td ><%= fly.flight_number %></td>
+    <td ><%= link_to "Fly now", "http://www.google.com/flights" %></td>
+  </tr>
+<% end %>
+
+</tbody>
+</table>
+<br>
+<div>
+  <%= link_to "Flights leaving tomorrow! ", href= "http://www.google.com/flights", class: "btn btn-success", style: "width: 100%" %>
+  <br>
+  <br>
+  <%= link_to "Home ", root_path, class: "btn btn-success", style: "width: 100%" %>
+</div>
+<br>
+<br>
+<br>
+
+</div>
+</div>

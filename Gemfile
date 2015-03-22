@@ -57,3 +57,4 @@ gem 'fog'
 gem 'pg_search'
 gem 'kaminari'
 gem "figaro"
+gem 'simple_form'

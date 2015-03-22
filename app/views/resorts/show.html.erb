@@ -1,3 +1,46 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand">SnowFly</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"> <%= link_to "Home", root_path %> <span class="sr-only">(current)</span></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li class="active"> <%= link_to "All Flights", flight_path %> <span class="sr-only">(current)</span></li>
+      </ul>
+
+      <form class="navbar-form navbar-left" role="search">
+        <%= form_tag root_path, method: :get do %>
+        <%= text_field_tag :search_text %>
+        <%= submit_tag "Search", class: "btn btn-default" %>
+        <% end %>
+      </form>
+
+      <ul class="nav navbar-nav navbar-right">
+        <button type="button" class="navbar-btn btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Get Weekly Snowfall Email</button>
+        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              <%= render partial:  'users/form' %>
+            </div>
+          </div>
+        </div>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
 <body class="show container">
 <h1><%= @resort.name %></h1>
 <div><%= image_tag @resort.photo.large, class: "img-responsive" %></div>
