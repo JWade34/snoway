@@ -79,7 +79,7 @@
   <div class="row">
     <% @resorts.each do |resort| %>
    <div class="col-md-3">
-     <% if resort.expected_snowfall > 0 %>
+<!-- add if greater than 0 loop here -->
      <div class="thumbnail">
        <%= link_to image_tag(resort.photo.thumb), resort %>
        <div class="caption">
@@ -87,7 +87,7 @@
          <h3><%= resort.expected_snowfall %> in.</h3>
        </div>
      </div>
-     <% end %>
+
    </div>
    <% end %>
   </div>
