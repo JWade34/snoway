@@ -1,8 +1,9 @@
 
 @import 'bootstrap-sprockets';
-
 @import 'bootstrap';
-
+@import 'font-awesome-sprockets';
 @import 'font-awesome';
-
 @import 'resorts';
+@import 'bootstrap.min';
+@import 'font-awesome.min';
+@import 'style';

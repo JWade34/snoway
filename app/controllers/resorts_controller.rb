@@ -1,6 +1,8 @@
 class ResortsController < ApplicationController
 
   def index
+    @flight = Flight.all
+
     if params[:search_text].present?
       @resorts = Resort.search(params[:search_text])
     else

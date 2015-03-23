@@ -58,3 +58,4 @@ gem 'pg_search'
 gem 'kaminari'
 gem "figaro"
 gem 'simple_form'
+gem 'font-awesome-sass'

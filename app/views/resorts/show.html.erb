@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand">SnowFly</a>
+      <a class="navbar-brand">SnoWay</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -41,9 +41,16 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<body class="show container">
-<h1><%= @resort.name %></h1>
+<body class="back container">
+
 <div><%= image_tag @resort.photo.large, class: "img-responsive" %></div>
+<h1><%= @resort.name %></h1>
+
+<% total = @resort.hourly_forecasts.map do |forecast| %>
+  <% forecast.precip_accumulation.to_f %>
+<% end %>
+<h2>Expected snowfall this week: <%= total.sum.round(2) %> inches</h2>
+
  <p>Weekly weather forecast:</p>
 
 
@@ -75,11 +82,11 @@
   </tbody>
   </table>
 
+<br>
+<br>
+<h4>Lowest priced flight leaving tomorrow</h4>
 
-<% total = @resort.hourly_forecasts.map do |forecast| %>
-  <% forecast.precip_accumulation.to_f %>
-<% end %>
-<h2>Expected snowfall this week: <%= total.sum.round(2) %> inches</h2>
+
 
 
 <table  class="flight table-bordered table-condensed table-striped" style="width: 100%">
