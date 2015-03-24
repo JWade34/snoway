@@ -6,6 +6,18 @@
  * Version: 1.0
  * URL: http://blacktie.co
  */
+.words {
+  color: black;
+}
+
+.boxy {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.emailform {
+	position: center;
+}
 
 .font-thin {
 	font-family: "Titillium Web", sans-serif;
@@ -231,6 +243,9 @@ body {
 		height: 100%;
 	background-attachment: relative;
 	background-position: center center;
+	h4 {
+		margin-top: 30px;
+	}
 }
 
 #slide-1 h1 {
@@ -239,13 +254,13 @@ body {
 
 @media (max-width: 991px) {
 	#slide-1 {
-		background-position: -70% 0, 170% 0;
+		background-position: 0% 0, 170% 0;
 	}
 }
 
 @media (max-width: 767px) {
 	#slide-1 {
-		background-image: none;
+		background-image: url(<%= image_path 'skiing2.jpg' %>);
 	}
 }
 

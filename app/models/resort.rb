@@ -18,8 +18,8 @@ class Resort < ActiveRecord::Base
   def cities
     if name.include?("VT")
       "Burlington"
-    elsif name.include?("Canada")
-      "Montreal"
+    elsif name.include?("QC")
+      "Buffalo"
     elsif name.include?("WY")
       "Jackson Hole"
     elsif name.include?("MT")
@@ -34,7 +34,7 @@ class Resort < ActiveRecord::Base
       "Portland"
     elsif name.include?("OR")
       "Portland"
-    elsif name.include?("NM") || "Durango Mountain Resort CO" || "Wolf Creek, CO"
+    elsif name.include?("NM") || name == "Durango Mountain Resort CO" || name == "Wolf Creek, CO"
       "Santa Fe"
     elsif name.include?("CO")
       "Denver"
@@ -42,7 +42,7 @@ class Resort < ActiveRecord::Base
       "Los Angles"
     elsif name.include?("CA")
       "San Francisco"
-    elsif name.include?("WA") || "Whistler, BC"
+    elsif name.include?("WA") || name == "Whistler, BC"
       "Seattle"
     elsif name.include?("UT")
       "Salt Lake City"

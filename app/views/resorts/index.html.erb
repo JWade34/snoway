@@ -3,18 +3,18 @@
 		<div class="container-fluid">
 
 			<!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+			<!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
-			</button>
+			</button> -->
 
 
 			<div class="nav-collapse navbar-responsive-collapse">
 				<ul class="nav row">
           <li>
             <button type="button" class="navbar-left navbar-btn btn btn-sm btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Weekly Snowfall Email</button>
-            <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                   <%= render partial: 'users/form' %>
@@ -22,19 +22,11 @@
               </div>
             </div>
           </li>
-					<li data-slide="1" class="col-12 col-sm-2"><a id="menu-link-1" href="#slide-1" title="Next Section"><span class="icon icon-home"></span> <span class="text">HOME</span></a></li>
-					<li data-slide="2" class="col-12 col-sm-2"><a id="menu-link-2" href="#slide-2" title="Next Section"><span class="fa fa-cloud"></span> <span class="text">SNOWFALL</span></a></li>
-					<li data-slide="4" class="col-12 col-sm-2"><a id="menu-link-4" href="#slide-4" title="Next Section"><span class="fa fa-plane"></span> <span class="text">FLIGHTS</span></a></li>
-					<li data-slide="5" class="col-12 col-sm-2"><a id="menu-link-5" href="#slide-5" title="Next Section"><span class="fa fa-quote-right"></span> <span class="text">QUOTE</span></a></li>
-					<li data-slide="6" class="col-12 col-sm-2"><a id="menu-link-6" href="#slide-6" title="Next Section"><span class="icon icon-envelope"></span> <span class="text">CONTACT</span></a></li>
-          <!-- <li>
-            <form class="navbar-right" role="search">
-              <%= form_tag root_path, method: :get do %>
-              <%= text_field_tag :search_text %>
-              <%= submit_tag "Search", class: "btn btn-default" %>
-              <% end %>
-            </form>
-          </li> -->
+					<li data-slide="1" class="col-md-12 col-sm-2"><a id="menu-link-1" href="#slide-1" title="Next Section"><span class="fa fa-home"></span> <span class="text">HOME</span></a></li>
+					<li data-slide="2" class="col-md-12 col-sm-2"><a id="menu-link-2" href="#slide-2" title="Next Section"><span class="fa fa-cloud"></span> <span class="text">SNOWFALL</span></a></li>
+					<li data-slide="4" class="col-md-12 col-sm-2"><a id="menu-link-4" href="#slide-4" title="Next Section"><span class="fa fa-plane"></span> <span class="text">FLIGHTS</span></a></li>
+					<!-- <li data-slide="5" class="col-md-12 col-sm-2"><a id="menu-link-5" href="#slide-5" title="Next Section"><span class="fa fa-quote-right"></span> <span class="text">QUOTE</span></a></li> -->
+					<li data-slide="6" class="col-md-12 col-sm-2"><a id="menu-link-6" href="#slide-6" title="Next Section"><span class="fa fa-envelope-o"></span> <span class="text">CONTACT</span></a></li>
         </ul>
 				<div class="row">
 					<div class="col-sm-2 active-menu"></div>
@@ -58,17 +50,20 @@
 		<div class="container">
 			<div id="home-row-1" class="row clearfix">
 				<div class="col-12">
+          <div class="words">
 					<h1 class="font-semibold">SnoWay</span></h1>
 					<h4 class="font-thin">Flying <span class="font-semibold"> you </span> to the best <span class="font-semibold">snow</span>,  fast.</h4>
+
 					<br>
 					<br>
           <br>
           <br>
           <br>
           <br>
-          <p class="font-thin">The cheapest flight leaving tomorrow</p>
           <div>
-            <%= link_to "It's DUMPING in #{@resorts.first.name} this week. Fly now for ______ .", href= "http://www.google.com/flights", class: "btn btn-primary", style: "width: 45%" %>
+          <!-- <p class="font-thin">The cheapest flight leaving tomorrow</p> -->
+        </div>
+            <p><%= link_to "It's DUMPING in #{@resorts.first.name}. Fly NOW for #{number_to_currency(@flight.first.price)}", href= "http://www.google.com/flights", class: "btn btn-primary" %></p>
           </div>
 				</div><!-- /col-12 -->
 			</div><!-- /row -->
@@ -82,16 +77,63 @@
 
 	<!-- === Slide 2 === -->
 	<div class="slide story" id="slide-2" data-slide="2">
+    <div class="container">
+    <div class="row content-row">
+      <div class="col-1 col-sm-1 hidden-sm">&nbsp;</div>
+      <div class="col-12 col-sm-2"><%= image_tag 'winter29.png' %></div>
+      <div class="col-12 col-sm-2"><%= image_tag 'travel22.png' %></div>
+      <div class="col-12 col-sm-2"><%= image_tag 'ski-resort.png' %></div>
+      <div class="col-12 col-sm-2"><%= image_tag 'skiing9.png' %></div>
+      <div class="col-12 col-sm-2"><%= image_tag 'avatar8.png' %></div>
+      <div class="col-1 col-sm-1 hidden-sm">&nbsp;</div>
+    </div><!-- /row -->
+    <br>
+    <br>
+    <br>
+    <form class="form-group" role="search" placeholder="Resort">
+      <%= form_tag root_path, class: "form-control", method: :get do %>
+      <%= text_field_tag :search_text, "", style: "width: 50%" %>
+      <%= submit_tag "Search", class: "btn btn-default" %>
+      <% end %>
+    </form>
+    <br>
+
+<!--
+    <div class="col-lg-6">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for a specific resort">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Make it Snow</button>
+        </span>
+      </div><!-- /input-group -->
+      <!--</div> /.col-lg-6 -->
+
+    <!-- <div class="form-group">
+      <%= form_tag root_path, class: "navbar-form", method: :get do %>
+      <%= text_field_tag :search_text, "", class: "form-control", style: "width: 55%" %>
+      <%= submit_tag "Search", class: "btn btn-default" %>
+      <% end %>
+    </div> -->
+
+    <br>
+
 		<div class="container">
+      <h2>Top snowfall this week</h2>
       <div class="row">
         <% @resorts.each do |resort| %>
-       <div class="col-md-3">
+       <div class="col-md-3 col-xs-12">
     <!-- add if greater than 0 loop here -->
          <div class="thumbnail">
            <%= link_to image_tag(resort.photo.thumb), resort %>
            <div class="caption">
              <h4><%= link_to resort.name, resort %></h4>
-             <h3><%= resort.expected_snowfall %> in.</h3>
+
+             <div><%= image_tag 'flake.png' %></div>
+
+             <!-- <% if resort.expected_snowfall > 8 %>
+             <div><%= image_tag 'storm.png' %></div>
+             <% end %> -->
+              <h3><%= resort.expected_snowfall %> in.</h3>
            </div>
          </div>
 
@@ -99,6 +141,7 @@
        <% end %>
       </div>
 		</div><!-- /container -->
+  </div>
 	</div><!-- /slide2 -->
 
 
@@ -107,44 +150,44 @@
 	<div class="slide story" id="slide-4" data-slide="4">
 		<div class="container">
 			<div class="row title-row">
-				<div class="col-12 font-thin">More things <span class="font-semibold">here.</span></div>
+				<div class="col-12 font-thin">"We'll never know our full <span class="font-semibold">potential</span> unless we push ourselves to find it."</div>
 			</div><!-- /row -->
 			<div class="row line-row">
 				<div class="hr">&nbsp;</div>
 			</div><!-- /row -->
 			<div class="row subtitle-row">
 				<div class="col-sm-1 hidden-sm">&nbsp;</div>
-				<div class="col-12 col-sm-10 font-light">"If you don't do it now, you'll be 1 year older when you do." -Warren Miller</div>
+				<div class="col-12 col-sm-10 font-light">Travis Rice</div>
 				<div class="col-sm-1 hidden-sm">&nbsp;</div>
 			</div><!-- /row -->
-			<div class="row content-row">
+			<!-- <div class="row content-row">
 				<div class="col-sm-1 hidden-sm">&nbsp;</div>
 				<div class="col-12 col-sm-2">
 					<p><i class="icon icon-bolt"></i></p>
 					<h2 class="font-thin">Listening to<br><span class="font-semibold" >your needs</span></h2>
 					<h4 class="font-thin">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</h4>
 				</div><!-- /col12 -->
-				<div class="col-12 col-sm-2">
+        <!--		<div class="col-12 col-sm-2">
 					<p><i class="icon icon-cog"></i></p>
 					<h2 class="font-thin">Project<br><span class="font-semibold">discovery</span></h2>
 					<h4 class="font-thin">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</h4>
 				</div><!-- /col12 -->
-				<div class="col-12 col-sm-2">
+        <!--		<div class="col-12 col-sm-2">
 					<p><i class="icon icon-cloud"></i></p>
 					<h2 class="font-thin">Storming<br><span class="font-semibold">our brains</span></h2>
 					<h4 class="font-thin">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</h4>
 				</div><!-- /col12 -->
-				<div class="col-12 col-sm-2">
+        <!--		<div class="col-12 col-sm-2">
 					<p><i class="icon icon-map-marker"></i></p>
 					<h2 class="font-thin">Getting<br><span class="font-semibold">there</span></h2>
 					<h4 class="font-thin">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</h4>
 				</div><!-- /col12 -->
-				<div class="col-12 col-sm-2">
+        <!--	<div class="col-12 col-sm-2">
 					<p><i class="icon icon-gift"></i></p>
 					<h2 class="font-thin">Delivering<br><span class="font-semibold">the product</span></h2>
 					<h4 class="font-thin">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</h4>
 				</div><!-- /col12 -->
-				<div class="col-sm-1 hidden-sm">&nbsp;</div>
+        <!--	<div class="col-sm-1 hidden-sm">&nbsp;</div>
 			</div><!-- /row -->
 		</div><!-- /container -->
 	</div><!-- /slide4 -->
@@ -165,11 +208,11 @@
 			</div><!-- /row -->
 			<div class="row content-row">
 				<div class="col-1 col-sm-1 hidden-sm">&nbsp;</div>
-				<div class="col-12 col-sm-2"><img src="" alt=""></div>
-				<div class="col-12 col-sm-2"><img src="" alt=""></div>
-				<div class="col-12 col-sm-2"><img src="" alt=""></div>
-				<div class="col-12 col-sm-2"><img src="" alt=""></div>
-				<div class="col-12 col-sm-2"><img src="" alt=""></div>
+				<div class="col-12 col-sm-2"><%= image_tag 'winter29.png' %></div>
+				<div class="col-12 col-sm-2"><%= image_tag 'travel22.png' %></div>
+				<div class="col-12 col-sm-2"><%= image_tag 'ski-resort.png' %></div>
+				<div class="col-12 col-sm-2"><%= image_tag 'skiing9.png' %></div>
+				<div class="col-12 col-sm-2"><%= image_tag 'avatar8.png' %></div>
 				<div class="col-1 col-sm-1 hidden-sm">&nbsp;</div>
 			</div><!-- /row -->
 		</div><!-- /container -->
@@ -179,36 +222,36 @@
 	<div class="slide story" id="slide-6" data-slide="6">
 		<div class="container">
 			<div class="row title-row">
-				<div class="col-12 font-light">Leave us a <span class="font-semibold">message</span></div>
+				<div class="col-12 font-light">Leave me a <span class="font-semibold">message</span></div>
 			</div><!-- /row -->
 			<div class="row line-row">
 				<div class="hr">&nbsp;</div>
 			</div><!-- /row -->
 			<div class="row subtitle-row">
 				<div class="col-sm-1 hidden-sm">&nbsp;</div>
-				<div class="col-12 col-sm-10 font-light">Push a button and we're there</div>
+				<div class="col-12 col-sm-10 font-light">Push a button and I'm there</div>
 				<div class="col-sm-1 hidden-sm">&nbsp;</div>
 			</div><!-- /row -->
 			<div id="contact-row-4" class="row">
 				<div class="col-sm-1 hidden-sm">&nbsp;</div>
 				<div class="col-12 col-sm-2 with-hover-text">
-					<p><a target="_blank" href="#"><i class="icon icon-phone"></i></a></p>
-					<span class="hover-text font-light ">At least buy us a drink first</span></a>
+					<p><a target="_blank" href="https://medium.com/@justinmckelvey"><i class="fa fa-medium fa-5x"></i></a></p>
+					<span class="hover-text font-light ">Recent Blogposts</span></a>
 				</div><!-- /col12 -->
 				<div class="col-12 col-sm-2 with-hover-text">
-					<p><a target="_blank" href="#"><i class="icon icon-envelope"></i></a></p>
-					<span class="hover-text font-light ">Justin.W.McKelvey@gmail.com</span></a>
+					<p><a target="_blank" href="mailto:justinwmckelvey@gmail.com"><i class="fa fa-envelope-o fa-5x"></i></a></p>
+					<span class="hover-text font-light ">Send us a note</span></a>
 				</div><!-- /col12 -->
 				<div class="col-12 col-sm-2 with-hover-text">
-					<p><a target="_blank" href="#"><i class="icon icon-home"></i></a></p>
-					<span class="hover-text font-light ">Houston, Texas</span></a>
+					<p><a target="_blank" href="http://www.businessinsider.com/houston-best-city-in-america-2014-6"><i class="fa fa-home fa-5x"></i></a></p>
+					<span class="hover-text font-light ">Houston, TX</span></a>
 				</div><!-- /col12 -->
 				<div class="col-12 col-sm-2 with-hover-text">
-					<p><a target="_blank" href="#"><i class="icon icon-facebook"></i></a></p>
-					<span class="hover-text font-light ">facebook/thejustinmckelvey</span></a>
+					<p><a target="_blank" href="https://github.com/JWade34"><i class="fa fa-github fa-5x"></i></a></p>
+					<span class="hover-text font-light ">JWade34</span></a>
 				</div><!-- /col12 -->
 				<div class="col-12 col-sm-2 with-hover-text">
-					<p><a target="_blank" href="#"><i class="icon icon-twitter"></i></a></p>
+					<p><a target="_blank" href="https://twitter.com/justinmckelvey"><i class="fa fa-twitter fa-5x"></i></a></p>
 					<span class="hover-text font-light ">@justinmckelvey</span></a>
 				</div><!-- /col12 -->
 				<div class="col-sm-1 hidden-sm">&nbsp;</div>

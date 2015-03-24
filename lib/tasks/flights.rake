@@ -9,8 +9,8 @@ namespace :travel do
     api_key = ENV["GOOGLE_API_KEY"]
 
     origin = "IAH"
-    destinations = %w( DEN SLC SFO SEA BTV SAF PDX BUF )
-    # destinations = Resort.all.map(&:airport_codes).flatten.uniq  YVR ANC YUL JAC BZN
+    destinations = %w( DEN SLC SFO SEA BTV SAF PDX BUF ANC JAC BZN )
+    # destinations = Resort.all.map(&:airport_codes).flatten.uniq  YVR YUL
     # destinations = %w(  BTV  )
 
     date = DateTime.tomorrow
