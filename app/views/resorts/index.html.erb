@@ -1,6 +1,6 @@
 
 	<div class="navbar navbar-fixed-top" >
-		<div class="container-fluid">
+		<div class="container">
 
 			<!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
 			<!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -12,8 +12,13 @@
 
 			<div class="nav-collapse navbar-responsive-collapse">
 				<ul class="nav row">
+					<li data-slide="1" class="col-md-12 col-sm-2"><a id="menu-link-1" href="#slide-1" title="Next Section"><span class="fa fa-home"></span> <span class="text">HOME</span></a></li>
+					<li data-slide="2" class="col-md-12 col-sm-2"><a id="menu-link-2" href="#slide-2" title="Next Section"><span class="fa fa-cloud"></span> <span class="text">RESORTS</span></a></li>
+					<li data-slide="4" class="col-md-12 col-sm-2"><a id="menu-link-4" href="http://snoway.herokuapp.com/resorts" title="Next Section"><span class="fa fa-plane"></span> <span class="text">FLIGHTS</span></a></li>
+					<!-- <li data-slide="5" class="col-md-12 col-sm-2"><a id="menu-link-5" href="#slide-5" title="Next Section"><span class="fa fa-quote-right"></span> <span class="text">QUOTE</span></a></li> -->
+					<li data-slide="6" class="col-md-12 col-sm-2"><a id="menu-link-6" href="#slide-6" title="Next Section"><span class="fa fa-envelope-o"></span> <span class="text">CONTACT</span></a></li>
           <li>
-            <button type="button" class="navbar-left navbar-btn btn btn-sm btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Weekly Snowfall Email</button>
+            <button type="button" class="navbar-right navbar-btn btn btn-sm btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Receive Weekly Snowfall Email</button>
             <div class="modal bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-sm">
                 <div class="modal-content">
@@ -22,12 +27,7 @@
               </div>
             </div>
           </li>
-					<li data-slide="1" class="col-md-12 col-sm-2"><a id="menu-link-1" href="#slide-1" title="Next Section"><span class="fa fa-home"></span> <span class="text">HOME</span></a></li>
-					<li data-slide="2" class="col-md-12 col-sm-2"><a id="menu-link-2" href="#slide-2" title="Next Section"><span class="fa fa-cloud"></span> <span class="text">SNOWFALL</span></a></li>
-					<li data-slide="4" class="col-md-12 col-sm-2"><a id="menu-link-4" href="#slide-4" title="Next Section"><span class="fa fa-plane"></span> <span class="text">FLIGHTS</span></a></li>
-					<!-- <li data-slide="5" class="col-md-12 col-sm-2"><a id="menu-link-5" href="#slide-5" title="Next Section"><span class="fa fa-quote-right"></span> <span class="text">QUOTE</span></a></li> -->
-					<li data-slide="6" class="col-md-12 col-sm-2"><a id="menu-link-6" href="#slide-6" title="Next Section"><span class="fa fa-envelope-o"></span> <span class="text">CONTACT</span></a></li>
-        </ul>
+      </ul>
 				<div class="row">
 					<div class="col-sm-2 active-menu"></div>
 				</div>
@@ -63,7 +63,7 @@
           <div>
           <!-- <p class="font-thin">The cheapest flight leaving tomorrow</p> -->
         </div>
-            <p><%= link_to "It's DUMPING in #{@resorts.first.name}. Fly NOW for #{number_to_currency(@flight.first.price)}", href= "http://www.google.com/flights", class: "btn btn-primary" %></p>
+            <p><%= link_to "It's DUMPING in #{@resorts.first.name}. Fly NOW for #{number_to_currency(@flight.first.price)}", href= "https://www.google.com/flights/#search;f=HOU,IAH;t=BTV;d=2015-03-25;r=2015-04-01", class: "btn btn-primary" %></p>
           </div>
 				</div><!-- /col-12 -->
 			</div><!-- /row -->
