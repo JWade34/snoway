@@ -1,36 +1,30 @@
+<div class="navbar" >
+  <div class="container">
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">SnowFly</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"> <%= link_to "Home", root_path %> <span class="sr-only">(current)</span></li>
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-        <button type="button" class="navbar-btn btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Get Weekly Snowfall Email</button>
-        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-              <%= render partial:  'users/form' %>
+    <div class="nav-collapse navbar-responsive-collapse">
+      <ul class="nav row">
+        <li data-slide="1" class="col-md-12 col-sm-2"><a id="menu-link-1" href="http://snoway.herokuapp.com/" title="Next Section"><span class="fa fa-home"></span> <span class="text">HOME</span></a></li>
+        <li data-slide="2" class="col-md-12 col-sm-2"><a id="menu-link-2" href="http://snoway.herokuapp.com/" title="Next Section"><span class="fa fa-cloud"></span> <span class="text">RESORTS</span></a></li>
+        <li data-slide="4" class="col-md-12 col-sm-2"><a id="menu-link-4" href="http://snoway.herokuapp.com/resorts" title="Next Section"><span class="fa fa-plane"></span> <span class="text">FLIGHTS</span></a></li>
+        <!-- <li data-slide="5" class="col-md-12 col-sm-2"><a id="menu-link-5" href="#slide-5" title="Next Section"><span class="fa fa-quote-right"></span> <span class="text">QUOTE</span></a></li> -->
+        <li data-slide="6" class="col-md-12 col-sm-2"><a id="menu-link-6" href="http://snoway.herokuapp.com/" title="Next Section"><span class="fa fa-envelope-o"></span> <span class="text">CONTACT</span></a></li>
+        <li>
+          <button type="button" class="navbar-right navbar-btn btn btn-sm btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Receive Weekly Snowfall Email</button>
+          <div class="modal bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+              <div class="modal-content">
+                <%= render partial: 'users/form' %>
+              </div>
             </div>
           </div>
-        </div>
+        </li>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+      <div class="row">
+        <div class="col-sm-2 active-menu"></div>
+      </div>
+    </div><!-- /.nav-collapse -->
+  </div><!-- /.container -->
+</div><!-- /.navbar -->
 
 
 <body class="flightback">
