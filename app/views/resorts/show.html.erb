@@ -34,7 +34,7 @@
 
 <body class="container showback">
 
-<div><%= image_tag @resort.photo.large, class: "img-responsive" %></div>
+<div class="shadowbox"><%= image_tag @resort.photo.large, class: "img-responsive" %></div>
 <h1><%= @resort.name %></h1>
 
 <% total = @resort.hourly_forecasts.map do |forecast| %>
