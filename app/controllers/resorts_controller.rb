@@ -10,7 +10,7 @@ class ResortsController < ApplicationController
 
 
     if params[:search_text].present?
-      @resorts = Resort.search(params[:search_text])
+      @resorts = Resort.search(params[:search_text]).sort_by(&:expected_snowfall).reverse
     else
       @resorts = Resort.all.sort_by(&:expected_snowfall).reverse.first(12)
     end
@@ -27,7 +27,7 @@ class ResortsController < ApplicationController
     @resort = Resort.find params[:id]
     @flight = Flight.all
   end
-  
+
 
   def flight
     date = Date.today + 1
