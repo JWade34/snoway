@@ -105,7 +105,9 @@
 </table>
 <br>
 <div>
-  <%= link_to "Get to #{@resort.name} - Flight leaves tomorrow! ", href= "http://www.google.com/flights", class: "btn btn-success", style: "width: 100%" %>
+  <% flights_for_resort(flights: @flight, resort: @resort).each do |fly| %>
+    <%= link_to "Get to #{@resort.name} - Flight leaves tomorrow! ", href= "https://www.google.com/flights/#search;f=HOU,IAH;t=#{fly.airport};d=#{@day};r=#{@add_week}", class: "btn btn-success", style: "width: 100%" %>
+  <% end %>
 </div>
 <br>
 <br>

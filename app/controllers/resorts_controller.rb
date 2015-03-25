@@ -16,6 +16,7 @@ class ResortsController < ApplicationController
     end
   end
 
+
   def show
     date = Date.today + 1
     @day = date.strftime("%Y-%m-%d")
@@ -26,6 +27,7 @@ class ResortsController < ApplicationController
     @resort = Resort.find params[:id]
     @flight = Flight.all
   end
+  
 
   def flight
     date = Date.today + 1
