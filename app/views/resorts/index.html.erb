@@ -52,7 +52,7 @@
 		<div class="container">
 			<div id="home-row-1" class="row clearfix">
 				<div class="col-12">
-          <div class="words">
+          <div class="">
           <!-- <p><%= image_tag 'largefighter.png' %></p> -->
 					<h1><span class="font-semibold">SnoWay</span></h1>
 					<h4 class="font-thin">Flying <span class="font-semibold"> you </span> to the best <span class="font-semibold">snow</span>,  fast.</h4>
@@ -64,10 +64,11 @@
           <br>
           <br>
           <div>
-          <!-- <p class="font-thin">The cheapest flight leaving tomorrow</p> -->
         </div>
-            <p><%= link_to "It's DUMPING in #{@resorts.first.name}. Fly NOW for #{number_to_currency(@flight.first.price)}", href= "https://www.google.com/flights/#search;f=HOU,IAH;t=BTV;d=2015-03-25;r=2015-04-01", class: "btn btn-primary" %></p>
-          </div>
+          <% @flight.take(1).each do |fly| %>
+            <p><%= link_to "Fly to #{fly.resort} NOW for #{number_to_currency(fly.price)}", href= "https://www.google.com/flights/#search;f=HOU,IAH;t=#{fly.airport};d=#{@day};r=#{@add_week}", class: "btn btn-primary" %></p>
+          <% end %>
+        </div>
 				</div><!-- /col-12 -->
 			</div><!-- /row -->
 			<div id="home-row-2" class="row clearfix">
@@ -121,8 +122,10 @@
     <br>
 
 		<div class="container">
-      <h2>Top snowfall this week</h2>
+      <h2>Top <span class="font-semibold"> snowfall </span> this week</h2>
       <div class="row">
+
+
         <% @resorts.each do |resort| %>
        <div class="col-md-3 col-xs-12">
     <!-- add if greater than 0 loop here -->
@@ -139,12 +142,13 @@
               <h3><%= resort.expected_snowfall %> in.</h3>
               <h4>High <%= resort.max_temp[0] %><%= image_tag 'degrees.png' %></h4>
               <h4>Low  <%= resort.min_temp[0] %><%= image_tag 'degrees.png' %></h4>
-
+            </div>
            </div>
          </div>
+         <% end %>
 
-       </div>
-       <% end %>
+
+
       </div>
 		</div><!-- /container -->
   </div>

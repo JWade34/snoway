@@ -8,7 +8,7 @@
     <div class="nav-collapse navbar-responsive-collapse">
       <ul class="nav row">
         <li data-slide="1" class="col-md-12 col-sm-2"><a id="menu-link-1" href="http://snoway.herokuapp.com/" title="Next Section"><span class="fa fa-home"></span> <span class="text">HOME</span></a></li>
-        <li data-slide="2" class="col-md-12 col-sm-2"><a id="menu-link-2" href="http://snoway.herokuapp.com/" title="Next Section"><span class="fa fa-cloud"></span> <span class="text">RESORTS</span></a></li>
+        <li data-slide="2" class="col-md-12 col-sm-2"><a id="menu-link-2" href="http://snoway.herokuapp.com/#slide-2" title="Next Section"><span class="fa fa-cloud"></span> <span class="text">RESORTS</span></a></li>
         <li data-slide="4" class="col-md-12 col-sm-2"><a id="menu-link-4" href="http://snoway.herokuapp.com/resorts" title="Next Section"><span class="fa fa-plane"></span> <span class="text">FLIGHTS</span></a></li>
         <!-- <li data-slide="5" class="col-md-12 col-sm-2"><a id="menu-link-5" href="#slide-5" title="Next Section"><span class="fa fa-quote-right"></span> <span class="text">QUOTE</span></a></li> -->
         <li data-slide="6" class="col-md-12 col-sm-2"><a id="menu-link-6" href="http://snoway.herokuapp.com/" title="Next Section"><span class="fa fa-envelope-o"></span> <span class="text">CONTACT</span></a></li>
@@ -32,7 +32,7 @@
 
 
 
-<body class="container showback transparent">
+<body class="container showback">
 
 <div><%= image_tag @resort.photo.large, class: "img-responsive" %></div>
 <h1><%= @resort.name %></h1>
@@ -97,7 +97,7 @@
     <td ><%= number_to_currency(fly.price) %></td>
     <td ><%= fly.carrier_code %></td>
     <td ><%= fly.flight_number %></td>
-    <td ><%= link_to "Fly to #{@resort.name} now", "http://www.google.com/flights" %></td>
+    <td ><%= link_to "Fly to #{@resort.name} now", "https://www.google.com/flights/#search;f=HOU,IAH;t=#{fly.airport};d=#{@day};r=#{@add_week}" %></td>
   </tr>
 <% end %>
 
