@@ -1,6 +1,10 @@
 <div class="navbar" >
   <div class="container">
 
+    <a class="navbar-brand" href="#">
+      <img><%= image_tag 'smallfighter.png' %></img>
+    </a>
+
     <div class="nav-collapse navbar-responsive-collapse">
       <ul class="nav row">
         <li data-slide="1" class="col-md-12 col-sm-2"><a id="menu-link-1" href="http://snoway.herokuapp.com/" title="Next Section"><span class="fa fa-home"></span> <span class="text">HOME</span></a></li>
@@ -20,7 +24,7 @@
         </li>
       </ul>
       <div class="row">
-        <div class="col-sm-2 active-menu"></div>
+        <div class="col-sm-2"></div>
       </div>
     </div><!-- /.nav-collapse -->
   </div><!-- /.container -->
@@ -28,7 +32,7 @@
 
 
 
-<body class="back container">
+<body class="container showback transparent">
 
 <div><%= image_tag @resort.photo.large, class: "img-responsive" %></div>
 <h1><%= @resort.name %></h1>
@@ -37,8 +41,6 @@
   <% forecast.precip_accumulation.to_f %>
 <% end %>
 <h2>Expected snowfall this week: <%= total.sum.round(2) %> inches</h2>
-
- <p>Weekly weather forecast:</p>
 
 
 
@@ -58,8 +60,8 @@
    <% @resort.hourly_forecasts.sort_by(&:datetime).each do |forecast| %>
      <tr>
        <td ><%= forecast.datetime.strftime("%A, %b %d") %></td>
-       <td ><%= forecast.temperature_min.round(0) %></td>
-       <td ><%= forecast.temperature_max.round(0) %></td>
+       <td ><%= forecast.temperature_min.to_f.round(0) %></td>
+       <td ><%= forecast.temperature_max.to_f.round(0) %></td>
        <td ><%= number_to_percentage forecast.precip_probability * 100, precision: 0 %></td>
        <td ><%= forecast.precip_accumulation.round(1) %></td>
        <td ><%= forecast.summary %></td>

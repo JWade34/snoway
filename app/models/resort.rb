@@ -51,6 +51,18 @@ class Resort < ActiveRecord::Base
     end
   end
 
+  def max_temp
+    max = hourly_forecasts.future.map do |forecast|
+      forecast.temperature_max.to_f.round(0)
+    end
+  end
+
+  def min_temp
+    min = hourly_forecasts.future.map do |forecast|
+      forecast.temperature_min.to_f.round(0)
+    end
+  end
+
   def expected_snowfall
     accumulations = hourly_forecasts.future.map do |forecast|
       forecast.precip_accumulation.to_f

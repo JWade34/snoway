@@ -1,7 +1,6 @@
 
 	<div class="navbar navbar-fixed-top" >
 		<div class="container">
-
 			<!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
 			<!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
 				<span class="icon-bar"></span>
@@ -9,6 +8,9 @@
 				<span class="icon-bar"></span>
 			</button> -->
 
+            <a class="navbar-brand" href="#">
+              <img><%= image_tag 'mountain.png' %></img>
+            </a>
 
 			<div class="nav-collapse navbar-responsive-collapse">
 				<ul class="nav row">
@@ -29,7 +31,7 @@
           </li>
       </ul>
 				<div class="row">
-					<div class="col-sm-2 active-menu"></div>
+					<div class="col-sm-2"></div>
 				</div>
 			</div><!-- /.nav-collapse -->
 		</div><!-- /.container -->
@@ -51,7 +53,8 @@
 			<div id="home-row-1" class="row clearfix">
 				<div class="col-12">
           <div class="words">
-					<h1 class="font-semibold">SnoWay</span></h1>
+          <!-- <p><%= image_tag 'largefighter.png' %></p> -->
+					<h1><span class="font-semibold">SnoWay</span></h1>
 					<h4 class="font-thin">Flying <span class="font-semibold"> you </span> to the best <span class="font-semibold">snow</span>,  fast.</h4>
 
 					<br>
@@ -127,13 +130,16 @@
            <%= link_to image_tag(resort.photo.thumb), resort %>
            <div class="caption">
              <h4><%= link_to resort.name, resort %></h4>
-
+             <% if resort.expected_snowfall > 0 %>
              <div><%= image_tag 'flake.png' %></div>
-
-             <!-- <% if resort.expected_snowfall > 8 %>
-             <div><%= image_tag 'storm.png' %></div>
-             <% end %> -->
+             <% end %>
+             <% if resort.expected_snowfall <= 0 %>
+             <div><%= image_tag 'smallmountain.png' %></div>
+             <% end %>
               <h3><%= resort.expected_snowfall %> in.</h3>
+              <h4>High <%= resort.max_temp[0] %><%= image_tag 'degrees.png' %></h4>
+              <h4>Low  <%= resort.min_temp[0] %><%= image_tag 'degrees.png' %></h4>
+
            </div>
          </div>
 
