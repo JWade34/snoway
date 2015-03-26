@@ -41,7 +41,7 @@
 
 </div>
 
-<h2>This Weeks forecast: <%= @resort.expected_snowfall %> inches</h2>
+<h2>Expected: <%= @resort.expected_snowfall %>"</h2>
 <div>
   <% flights_for_resort(flights: @flight, resort: @resort).each do |fly| %>
     <%= link_to "Get to #{@resort.name} - Flight leaves tomorrow! ", href= "https://www.google.com/flights/#search;f=HOU,IAH;t=#{fly.airport};d=#{@day};r=#{@add_week}", class: "btn btn-primary" %>
