@@ -39,12 +39,9 @@
 <div class="wrapitup">
 <h1><%= @resort.name %></h1>
 
-<% total = @resort.hourly_forecasts.map do |forecast| %>
-  <% forecast.precip_accumulation.to_f %>
-<% end %>
 </div>
 
-<h2>2 Week forecast: <%= total.sum.round(2) %> inches</h2>
+<h2>This Weeks forecast: <%= @resort.expected_snowfall %> inches</h2>
 
 
 
@@ -61,7 +58,7 @@
   </thead>
   <tbody>
 
-   <% @resort.hourly_forecasts.sort_by(&:datetime).each do |forecast| %>
+   <% @resort.hourly_forecasts.future.sort_by(&:datetime).each do |forecast| %>
      <tr>
        <td ><%= forecast.datetime.strftime("%A, %b %d") %></td>
        <td ><%= forecast.temperature_min.to_f.round(0) %></td>

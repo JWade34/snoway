@@ -52,23 +52,21 @@
 		<div class="container">
 			<div id="home-row-1" class="row clearfix">
 				<div class="col-12">
-          <div class="">
-          <!-- <p><%= image_tag 'largefighter.png' %></p> -->
-					<h1><span class="font-semibold">SnoWay</span></h1>
-					<h4 class="font-thin">Flying <span class="font-semibold"> you </span> to the best <span class="font-semibold">snow</span>,  fast.</h4>
-
-					<br>
-					<br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <div>
-        </div>
-          <% @flight.take(1).each do |fly| %>
-            <p><%= link_to "Fly to #{fly.resort} NOW for #{number_to_currency(fly.price)}", href= "https://www.google.com/flights/#search;f=HOU,IAH;t=#{fly.airport};d=#{@day};r=#{@add_week}", class: "btn btn-primary" %></p>
-          <% end %>
-        </div>
+          <div class="title">
+            <!-- <p><%= image_tag 'largefighter.png' %></p> -->
+  					<h1><span class="font-semibold">SnoWay</span></h1>
+  					<h4 class="font-thin">Flying <span class="font-semibold"> you </span> to the best <span class="font-semibold">snow</span>,  fast.</h4>
+            </div>
+  					<br>
+  					<br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <% @flight.take(1).each do |fly| %>
+              <p><%= link_to "Fly to #{fly.resort} NOW for #{number_to_currency(fly.price)}", href= "https://www.google.com/flights/#search;f=HOU,IAH;t=#{fly.airport};d=#{@day};r=#{@add_week}", class: "btn btn-primary" %></p>
+            <% end %>
+          </div>
 				</div><!-- /col-12 -->
 			</div><!-- /row -->
 			<div id="home-row-2" class="row clearfix">

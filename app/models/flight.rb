@@ -32,6 +32,10 @@ class Flight < ActiveRecord::Base
       "JAC"
     elsif destination == "Bozeman"
       "BZN"
+    elsif destination == "Las Vegas"
+      "LAS"
+    elsif destination == "Honolulu"
+      "HNL"
     else
       ""
     end
