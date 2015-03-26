@@ -34,7 +34,8 @@
 
 <body class="container showback">
 
-<div class="shadowbox"><%= image_tag @resort.photo.large, class: "img-responsive" %></div>
+<div class="col-md-6"><%= image_tag @resort.photo.large, class: "img-responsive" %></div>
+
 <div class="wrapitup">
 <h1><%= @resort.name %></h1>
 
@@ -43,7 +44,7 @@
 <% end %>
 </div>
 
-<h2>Expected snowfall this week: <%= total.sum.round(2) %> inches</h2>
+<h2>2 Week forecast: <%= total.sum.round(2) %> inches</h2>
 
 
 
@@ -86,7 +87,7 @@
    <tr>
      <th>Destination</th>
      <th>Airline</th>
-     <th>One-way Price</th>
+     <th>Price</th>
      <th>Carrier</th>
      <th>Flight #</th>
      <th>Link</th>

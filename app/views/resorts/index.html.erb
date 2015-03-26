@@ -134,16 +134,16 @@
            <div class="caption">
              <h4><%= link_to resort.name, resort %></h4>
              <% if resort.expected_snowfall > 0 %>
-             <div><%= image_tag 'flake.png' %></div>
+               <div><%= image_tag 'flake.png' %></div>
              <% end %>
              <% if resort.expected_snowfall <= 0 %>
-             <div><%= image_tag 'smallmountain.png' %></div>
+               <div><%= image_tag 'smallmountain.png' %></div>
              <% end %>
               <h3><%= resort.expected_snowfall %> in.</h3>
               <h4>High <%= resort.max_temp[0] %><%= image_tag 'degrees.png' %></h4>
               <h4>Low  <%= resort.min_temp[0] %><%= image_tag 'degrees.png' %></h4>
-            </div>
            </div>
+          </div>
          </div>
          <% end %>
 
