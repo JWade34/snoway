@@ -42,7 +42,11 @@
 </div>
 
 <h2>This Weeks forecast: <%= @resort.expected_snowfall %> inches</h2>
-
+<div>
+  <% flights_for_resort(flights: @flight, resort: @resort).each do |fly| %>
+    <%= link_to "Get to #{@resort.name} - Flight leaves tomorrow! ", href= "https://www.google.com/flights/#search;f=HOU,IAH;t=#{fly.airport};d=#{@day};r=#{@add_week}", class: "btn btn-primary" %>
+  <% end %>
+</div>
 
 
  <table class="temp table-bordered table-condensed table-striped" style="width: 100%">
@@ -107,7 +111,7 @@
 <br>
 <div>
   <% flights_for_resort(flights: @flight, resort: @resort).each do |fly| %>
-    <%= link_to "Get to #{@resort.name} - Flight leaves tomorrow! ", href= "https://www.google.com/flights/#search;f=HOU,IAH;t=#{fly.airport};d=#{@day};r=#{@add_week}", class: "btn btn-success", style: "width: 100%" %>
+    <%= link_to "Get to #{@resort.name} - Flight leaves tomorrow! ", href= "https://www.google.com/flights/#search;f=HOU,IAH;t=#{fly.airport};d=#{@day};r=#{@add_week}", class: "btn btn-default", style: "width: 100%" %>
   <% end %>
 </div>
 <br>
